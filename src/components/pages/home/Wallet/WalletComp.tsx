@@ -16,7 +16,7 @@ const WalletComp = ({ walletData }: WalletCompProps) => {
   ];
 
   return (
-    <div className="flex mt-12 gap-20">
+    <div className="flex flex-col md:flex-row mt-12 gap-20">
       <WalletGraph walletData={walletData} />
       <div className="flex flex-col gap-5">
         {balance.map((item, index) => (

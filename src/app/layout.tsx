@@ -47,7 +47,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${Degular.variable} antialiased`}>
+      <body
+        cz-shortcut-listen="false"
+        className={`${Degular.variable} antialiased`}
+      >
         <ReduxProvider>{children}</ReduxProvider>
       </body>
     </html>

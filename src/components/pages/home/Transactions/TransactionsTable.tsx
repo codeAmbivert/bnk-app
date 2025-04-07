@@ -36,7 +36,7 @@ const TransactionsTable = () => {
   }
   return (
     <div className="">
-      <div className="flex justify-between items-center py-5 border-b border-[#EFF1F6]">
+      <div className="flex justify-between items-center gap-5 flex-wrap py-5 border-b border-[#EFF1F6]">
         <div className="flex flex-col">
           <div className="text-[28px] font-bold">
             {data?.length} Transactions
@@ -53,6 +53,9 @@ const TransactionsTable = () => {
           >
             <div className="text-[15px] flex items-center gap-2 font-medium">
               Filter
+              <div className="h-[20px] w-[20px] rounded-full bg-black text-white flex justify-center items-center text-xs">
+                3
+              </div>
             </div>
           </Button>
           <Button

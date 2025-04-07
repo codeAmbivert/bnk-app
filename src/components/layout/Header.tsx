@@ -2,7 +2,6 @@
 import { useEffect, useState } from "react";
 import {
   AnalyticsIcon,
-  AppsIcon,
   BellIcon,
   ChatIcon,
   CrmIcon,
@@ -15,6 +14,8 @@ import { Button } from "../shared/Button";
 import UserDropDown from "./UserDropDown";
 import { useAppDispatch, useAppSelector } from "../../../redux/store";
 import { getUser } from "../../../redux/slices/userSlice";
+import SideNav from "./SideNav/SideNav";
+import AppsBtn from "./AppsBtn";
 
 const Header = () => {
   const dispatch = useAppDispatch();
@@ -25,10 +26,8 @@ const Header = () => {
     { name: "Analytics", icon: AnalyticsIcon },
     { name: "Revenue", icon: RevenueIcon },
     { name: "CRM", icon: CrmIcon },
-    { name: "Apps", icon: AppsIcon },
+    // { name: "Apps", icon: AppsIcon },
   ];
-
-  console.log("user data", data);
 
   useEffect(() => {
     dispatch(getUser());
@@ -37,7 +36,7 @@ const Header = () => {
     <div className="fixed top-0 left-0 w-full p-3 pb-0 bg-white z-100">
       <div className="w-full bg-white rounded-full shadow h-[64px] flex justify-between items-center pl-6 pr-4">
         <Logo className="h-[36px] w-[36px] cursor-pointer" />
-        <div className="flex items-center gap-4">
+        <div className="hidden lg:flex items-center gap-4">
           {buttons.map((button) => (
             <Button
               key={button.icon}
@@ -51,6 +50,13 @@ const Header = () => {
               <span className="flex items-center pt-1">{button.name}</span>
             </Button>
           ))}
+          {/* <Button
+            icon={<AppsIcon className="h-[14px] w-[14px]" />}
+            className={`text-[#56616B] text-sm`}
+          >
+            <span className="flex items-center pt-1">Apps</span>
+          </Button> */}
+          <AppsBtn />
         </div>
         <div className="flex items-center gap-5">
           <BellIcon className="h-[15.99px] w-[12.45px] cursor-pointer" />
@@ -72,6 +78,7 @@ const Header = () => {
         isOpen={openUserDropDown}
         setIsOpen={setOpenUserDropDown}
       />
+      <SideNav />
     </div>
   );
 };
